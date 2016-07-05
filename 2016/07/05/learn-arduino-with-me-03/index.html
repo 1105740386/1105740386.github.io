@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>learn-arduino-with-me-03 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Defining Logical Levels: true and false (Boolean Constants)
+There are two constants used to represent truth and falsity in the Arduino language: true, and false.
+
+false, false is defined as 0 (zero).">
+<meta property="og:type" content="article">
+<meta property="og:title" content="learn-arduino-with-me-03">
+<meta property="og:url" content="http://yoursite.com/2016/07/05/learn-arduino-with-me-03/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Defining Logical Levels: true and false (Boolean Constants)
+There are two constants used to represent truth and falsity in the Arduino language: true, and false.
+
+false, false is defined as 0 (zero).">
+<meta property="og:updated_time" content="2016-07-05T13:04:47.859Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="learn-arduino-with-me-03">
+<meta name="twitter:description" content="Defining Logical Levels: true and false (Boolean Constants)
+There are two constants used to represent truth and falsity in the Arduino language: true, and false.
+
+false, false is defined as 0 (zero).">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-learn-arduino-with-me-03" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/05/learn-arduino-with-me-03/" class="article-date">
+  <time datetime="2016-07-05T05:08:51.000Z" itemprop="datePublished">2016-07-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      learn-arduino-with-me-03
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>Defining Logical Levels: true and false (Boolean Constants)</strong></p>
+<p>There are two constants used to represent truth and falsity in the Arduino language: <code>true</code>, and <code>false</code>.</p>
+<ul>
+<li><code>false</code>, false is defined as 0 (zero).</li>
+<li><code>true</code>, true is often said to be defined as 1, which is correct, but true has a wider definition. <strong>Any integer which is non-zero is true, in a Boolean sense.</strong> So -1, 2 and -200 are all defined as true, too, in a Boolean sense.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Note that the <span class="literal">true</span> and <span class="literal">false</span> constants are typed <span class="keyword">in</span> lowercase unlike HIGH, LOW, INPUT, and OUTPUT.</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p><strong>Defining Digital Pins modes: INPUT, INPUT_PULLUP, and OUTPUT</strong></p>
+<p>Digital pins can be used as <code>INPUT</code>, <code>INPUT_PULLUP</code>, or <code>OUTPUT</code>. Changing a pin with <code>pinMode()</code> <strong>changes the electrical behavior of the pin.</strong></p>
+<p><code>Pins Configured as INPUT</code></p>
+<p>Arduino (Atmega) pins configured as INPUT with pinMode() are said to be in a high-impedance state. Pins configured as INPUT make extremely small demands on the circuit that they are sampling, equivalent to a series resistor of 100 Megohms in front of the pin. <strong>This makes them useful for reading a sensor.</strong></p>
+<p>If you have your pin configured as an INPUT, and are reading a switch, when the switch is in the open state the input pin will be “floating”, resulting in unpredictable results. In order to assure a proper reading when the switch is open, a pull-up or pull-down resistor must be used. The purpose of this resistor is to pull the pin to a known state when the switch is open. A 10 K ohm resistor is usually chosen, as it is a low enough value to reliably prevent a floating input, and at the same time a high enough value to not not draw too much current when the switch is closed. See the Digital Read Serial tutorial for more information.</p>
+<p><strong>If a pull-down resistor is used, the input pin will be LOW when the switch is open and HIGH when the switch is closed.</strong></p>
+<p><strong>If a pull-up resistor is used, the input pin will be HIGH when the switch is open and LOW when the switch is closed.</strong></p>
+<p><code>Pins Configured as INPUT_PULLUP</code></p>
+<p>The Atmega microcontroller on the Arduino has internal pull-up resistors (resistors that connect to power internally) that you can access. If you prefer to use these instead of external pull-up resistors, you can use the INPUT_PULLUP argument in pinMode().</p>
+<p>See the Input Pullup Serial tutorial for an example of this in use.</p>
+<p>Pins configured as inputs with either INPUT or INPUT_PULLUP can be damaged or destroyed if they are connected to voltages below ground (negative voltages) or above the positive power rail (5V or 3V).</p>
+<p><code>Pins Configured as Outputs</code></p>
+<p>Pins configured as OUTPUT with pinMode() are said to be in a low-impedance state. This means that they can provide a substantial amount of current to other circuits. Atmega pins can source (provide current) or sink (absorb current) up to 40 mA (milliamps) of current to other devices/circuits. This makes them useful for powering LEDs because LEDs typically use less than 40 mA. Loads greater than 40 mA (e.g. motors) will require a transistor or other interface circuitry.</p>
+<p>Pins configured as outputs can be damaged or destroyed if they are connected to either the ground or positive power rails.</p>
+<p><strong>Defining Pin Levels: HIGH and LOW</strong></p>
+<p>When reading or writing to a digital pin there <strong>are only two possible values a pin</strong> can take/be-set-to: <code>HIGH</code> and <code>LOW</code>.</p>
+<ul>
+<li><code>HIGH</code>,</li>
+<li><code>LOW</code>,</li>
+</ul>
+<hr>
+<p>The meaning of HIGH (in reference to a pin) is somewhat different depending on whether a pin is set to an INPUT or OUTPUT. </p>
+<p>When a pin is configured as an <code>INPUT</code> with <code>pinMode()</code>, and read with <code>digitalRead()</code>, the Arduino (Atmega) will report HIGH if:</p>
+<ul>
+<li>a voltage greater than 3 volts is present at the pin (5V boards);</li>
+<li>a voltage greater than 2 volts is present at the pin (3.3V boards);</li>
+</ul>
+<p>When a pin is configured to <code>OUTPUT</code> with <code>pinMode()</code>, and set to <code>HIGH</code> with <code>digitalWrite()</code>, the pin is at:</p>
+<ul>
+<li>5 volts (5V boards);</li>
+<li>3.3 volts (3.3V boards);</li>
+</ul>
+<p>A pin may also be configured as an <code>INPUT</code> with <code>pinMode()</code>, and subsequently made HIGH with <code>digitalWrite()</code>. This will enable the internal 20K pullup resistors, which will pull up the input pin to a HIGH reading unless it is pulled LOW by external circuitry. This is how <code>INPUT_PULLUP</code> works and is described below in more detail.</p>
+<p>In this state it can source current, e.g. light an LED that is connected through a series resistor to ground.</p>
+<hr>
+<p>The meaning of LOW also has a different meaning depending on whether a pin is set to <code>INPUT</code> or <code>OUTPUT</code>. </p>
+<p>When a pin is configured as an <code>INPUT</code> with <code>pinMode()</code>, and read with <code>digitalRead()</code>, the Arduino (Atmega) will report LOW if:</p>
+<ul>
+<li>a voltage less than 3 volts is present at the pin (5V boards);</li>
+<li>a voltage less than 2 volts is present at the pin (3.3V boards);</li>
+</ul>
+<p>When a pin is configured to <code>OUTPUT</code> with pinMode(), and set to LOW with <code>digitalWrite()</code>, the pin is at <code>0 volts</code> (both 5V and 3.3V boards). </p>
+<p>In this state it can sink current, e.g. light an LED that is connected through a series resistor to +5 volts (or +3.3 volts).</p>
+<p><strong>Defining built-ins: LED_BUILTIN</strong></p>
+<p>Most Arduino boards have a pin connected to an on-board LED in series with a resistor. The constant LED_BUILTIN is the number of the pin to which the on-board LED is connected. <strong>Most boards have this LED connected to digital pin 13.</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/07/05/learn-arduino-with-me-03/" data-id="ciq9h23pc0003xgjhd2hrcz0v" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arduino/">arduino</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/07/05/learn-arduino-with-me-04/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          learn-arduino-with-me-04
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/05/learn-arduino-with-me-02/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">learn-arduino-with-me-02</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/arduino/">arduino</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/arduino/" style="font-size: 20px;">arduino</a> <a href="/tags/c/" style="font-size: 10px;">c</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/05/learn-c-with-me-02/">C语言基本概念</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/05/learn-arduino-with-me-04/">learn-arduino-with-me-04</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/05/learn-arduino-with-me-03/">learn-arduino-with-me-03</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/05/learn-arduino-with-me-02/">learn-arduino-with-me-02</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/04/learn-c-with-me-01/">learn-c-with-me-01</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
